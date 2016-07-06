@@ -1,5 +1,6 @@
 # goconfig
 [![CircleCI](https://circleci.com/gh/steadyequipment/goconfig/tree/master.svg?style=svg)](https://circleci.com/gh/steadyequipment/goconfig/tree/master)
+[![Travis CI](https://travis-ci.org/steadyequipment/goconfig.svg?branch=master)](https://travis-ci.org/steadyequipment/goconfig)
 [![Go Report Card](https://goreportcard.com/badge/github.com/steadyequipment/goconfig)](https://goreportcard.com/report/github.com/steadyequipment/goconfig)
 
 Poursteady's [golang](https://golang.org) config file and command line parsing.  
