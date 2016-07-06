@@ -1,6 +1,7 @@
 package goconfig
 
 import (
+	"os"
 	"testing"
 )
 
