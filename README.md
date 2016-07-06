@@ -1,4 +1,5 @@
 # goconfig
+[![CircleCI](https://circleci.com/gh/steadyequipment/goconfig/tree/master.svg?style=svg)](https://circleci.com/gh/steadyequipment/goconfig/tree/master)
 
 Poursteady's [golang](https://golang.org) config file and command line parsing.  
 
