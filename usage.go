@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"github.com/fatih/color"
 
-	utility "github.com/steadyequipment/goutility"
+	"github.com/steadyequipment/goutility"
 )
 
 var (
@@ -96,7 +96,7 @@ func (this *ConfigValues) printOptions() {
 	leadSpacing := "  "
 	shorthandFormat := "%s, "
 	shorthandLength := len(fmt.Sprintf(shorthandFormat, "-a"))
-	shorthandMissingFormat := utility.StringOfStringRepeated(" ", shorthandLength)
+	shorthandMissingFormat := goutility.StringOfStringRepeated(" ", shorthandLength)
 
 	longestNameLength := this.getLongestName()
 
@@ -117,7 +117,7 @@ func (this *ConfigValues) printOptions() {
 		usageNameString := this.usageNameTypeString(value)
 		plainUsageNameTypeString := this.plainUsageNameTypeString(value)
 
-		padding := utility.StringOfStringRepeated(" ", longestNameLength-len(plainUsageNameTypeString))
+		padding := goutility.StringOfStringRepeated(" ", longestNameLength-len(plainUsageNameTypeString))
 		fmt.Printf(nameFormat, usageNameString+padding)
 
 		fmt.Printf(descriptionLeadSpacing)

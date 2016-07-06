@@ -3,7 +3,7 @@ package config
 import (
 	"github.com/spf13/pflag"
 
-	utility "github.com/steadyequipment/goutility"
+	"github.com/steadyequipment/goutility"
 )
 
 // TODO: check for duplicate param names or shorthands
@@ -100,10 +100,10 @@ func (this *ConfigValues) CheckRequiredValues() error {
 				continue
 			}
 
-			return utility.NewError("Required: value %s has not been set", name)
+			return goutility.NewError("Required: value %s has not been set", name)
 		}
 
-		return utility.NewError("Required: value %s has not been set up as a config value", name)
+		return goutility.NewError("Required: value %s has not been set up as a config value", name)
 	}
 
 	return nil

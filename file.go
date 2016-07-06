@@ -6,7 +6,7 @@ import (
 	"path"
 	"path/filepath"
 
-	utility "github.com/steadyequipment/goutility"
+	"github.com/steadyequipment/goutility"
 )
 
 func (this *ConfigValues) ParseFile() (*string, error) {
@@ -25,7 +25,7 @@ func (this *ConfigValues) ParseFile() (*string, error) {
 		return configFile, locationError
 	}
 	if configFileLocation == nil {
-		return configFile, utility.NewError("Unable to resolve config file's location")
+		return configFile, goutility.NewError("Unable to resolve config file's location")
 	}
 
 	configFileAbs, absError := this.ConfigFileAbsLocation()
@@ -33,7 +33,7 @@ func (this *ConfigValues) ParseFile() (*string, error) {
 		return configFileLocation, absError
 	}
 	if configFileAbs == nil {
-		return configFileLocation, utility.NewError("Unable to resolve config file '%s''s absolute location", *configFileLocation)
+		return configFileLocation, goutility.NewError("Unable to resolve config file '%s''s absolute location", *configFileLocation)
 	}
 
 	configFileName := path.Base(*configFileAbs)
@@ -59,12 +59,12 @@ func (this *ConfigValues) ParseFile() (*string, error) {
 func (this *ConfigValues) ConfigFileLocation() (*string, error) {
 
 	if this.configFile == nil {
-		return nil, utility.NewError("No config file specified")
+		return nil, goutility.NewError("No config file specified")
 	}
 
 	configFileLocation := this.configFile.Value()
 	if configFileLocation == nil || len(*configFileLocation) <= 0 {
-		return nil, utility.NewError("Invalid config file location provided")
+		return nil, goutility.NewError("Invalid config file location provided")
 	}
 
 	return configFileLocation, nil
