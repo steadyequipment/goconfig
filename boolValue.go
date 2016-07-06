@@ -23,7 +23,7 @@ type BoolValue struct {
 func makeBoolValue(name string, shorthand *string, defaultValue *bool, usageDescription string) *BoolValue {
 
 	var exampleType bool
-	valueInfo := MakeValueInfo(name, shorthand, usageDescription, reflect.TypeOf(exampleType))
+	valueInfo := makeValueInfo(name, shorthand, usageDescription, reflect.TypeOf(exampleType))
 
 	result := &BoolValue{
 		valueInfo: valueInfo,

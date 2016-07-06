@@ -21,7 +21,7 @@ type StringValue struct {
 func makeStringValue(name string, shorthand *string, defaultValue *string, usageDescription string) *StringValue {
 
 	var exampleType string
-	valueInfo := MakeValueInfo(name, shorthand, usageDescription, reflect.TypeOf(exampleType))
+	valueInfo := makeValueInfo(name, shorthand, usageDescription, reflect.TypeOf(exampleType))
 
 	result := &StringValue{
 		valueInfo: valueInfo,

@@ -24,7 +24,7 @@ type IntValue struct {
 func makeIntValue(name string, shorthand *string, defaultValue *int, usageDescription string) *IntValue {
 
 	var exampleType int
-	valueInfo := MakeValueInfo(name, shorthand, usageDescription, reflect.TypeOf(exampleType))
+	valueInfo := makeValueInfo(name, shorthand, usageDescription, reflect.TypeOf(exampleType))
 
 	result := &IntValue{
 		valueInfo: valueInfo,

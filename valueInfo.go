@@ -27,7 +27,8 @@ type valueInfo struct {
 	typeOfValue reflect.Type
 }
 
-func MakeValueInfo(name string, shorthand *string, usageDescription string, typeOfValue reflect.Type) *valueInfo {
+// MakeValueInfo make a new ValueInfo structure
+func makeValueInfo(name string, shorthand *string, usageDescription string, typeOfValue reflect.Type) *valueInfo {
 
 	return &valueInfo{
 		name:             name,
