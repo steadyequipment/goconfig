@@ -14,6 +14,7 @@ const (
 	invalidIntDefault = int(maxUint >> 1)
 )
 
+// IntValue int Config Value type
 type IntValue struct {
 	*valueInfo
 

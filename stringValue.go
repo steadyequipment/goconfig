@@ -11,6 +11,7 @@ const (
 	invalidStringDefault = ""
 )
 
+// StringValue string Config Value type
 type StringValue struct {
 	*valueInfo
 

@@ -13,6 +13,7 @@ const (
 	invalidBoolDefault = false
 )
 
+// BoolValue bool Config Value type
 type BoolValue struct {
 	*valueInfo
 

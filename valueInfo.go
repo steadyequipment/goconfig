@@ -4,6 +4,7 @@ import (
 	"reflect"
 )
 
+// Value generic Config Value type interface
 type Value interface {
 	Name() string
 	Shorthand() *string
@@ -19,6 +20,7 @@ type Value interface {
 	UpdateValueFromConfigFile()
 }
 
+// valueInfo common Config value data
 type valueInfo struct {
 	name             string
 	shorthand        *string
@@ -39,18 +41,22 @@ func makeValueInfo(name string, shorthand *string, usageDescription string, type
 	}
 }
 
+// Name config/param name of value
 func (this *valueInfo) Name() string {
 	return this.name
 }
 
+// Shorthand shorthand param of value, nil if no shorthand available
 func (this *valueInfo) Shorthand() *string {
 	return this.shorthand
 }
 
+// UsageDescription description of usage of this value
 func (this *valueInfo) UsageDescription() string {
 	return this.usageDescription
 }
 
+// TypeOfValue actual type of value
 func (this *valueInfo) TypeOfValue() reflect.Type {
 	return this.typeOfValue
 }
