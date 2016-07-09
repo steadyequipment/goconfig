@@ -14,7 +14,8 @@ type ConfigValues struct {
 
 	configFile *StringValue
 
-	allValues map[string]Value
+	allValues  map[string]Value
+	valueOrder []string
 
 	requiredValues []string
 
@@ -24,7 +25,8 @@ type ConfigValues struct {
 
 func MakeConfigValues() *ConfigValues {
 	return &ConfigValues{
-		allValues: make(map[string]Value, 0),
+		allValues:  make(map[string]Value, 0),
+		valueOrder: make([]string, 0),
 	}
 }
 
@@ -76,6 +78,7 @@ func (this *ConfigValues) AddValue(value Value) error {
 	}
 
 	this.allValues[name] = value
+	this.valueOrder = append(this.valueOrder, name)
 
 	return nil
 }
@@ -88,6 +91,13 @@ func (this *ConfigValues) RemoveValue(withName string) error {
 	}
 
 	this.allValues[withName] = nil
+
+	for index, value := range this.valueOrder {
+		if value == withName {
+			this.valueOrder = append(this.valueOrder[:index], this.valueOrder[index+1:]...)
+			break
+		}
+	}
 
 	return nil
 }

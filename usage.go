@@ -104,7 +104,10 @@ func (this *ConfigValues) printOptions() {
 
 	descriptionLeadSpacing := "  "
 
-	for _, value := range this.allValues {
+	for _, valueName := range this.valueOrder {
+
+		value, _ := this.allValues[valueName]
+
 		fmt.Printf(leadSpacing)
 
 		shorthand := value.Shorthand()
