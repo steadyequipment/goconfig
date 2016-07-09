@@ -94,7 +94,7 @@ func (this *StringValue) UpdateValueFromConfigFile() {
 func (this *ConfigValues) makeStringValueActual(name string, shorthand *string, defaultValue *string, usageDescription string) *StringValue {
 
 	result := makeStringValue(name, shorthand, defaultValue, usageDescription)
-	this.allValues[name] = result
+	this.AddValue(result)
 	return result
 }
 

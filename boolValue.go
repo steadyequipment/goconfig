@@ -99,7 +99,7 @@ func (this *BoolValue) UpdateValueFromConfigFile() {
 func (this *ConfigValues) makeAndAddBoolValue(name string, shorthand *string, defaultValue *bool, usageDescription string) *BoolValue {
 
 	result := makeBoolValue(name, shorthand, defaultValue, usageDescription)
-	this.allValues[name] = result
+	this.AddValue(result)
 	return result
 }
 

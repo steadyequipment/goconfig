@@ -67,6 +67,31 @@ func (this *ConfigValues) ClearValues() {
 	this.allValues = nil
 }
 
+func (this *ConfigValues) AddValue(value Value) error {
+
+	name := value.Name()
+	_, alreadySet := this.allValues[name]
+	if alreadySet == true {
+		return goutility.NewError("Value with name %s already set", name)
+	}
+
+	this.allValues[name] = value
+
+	return nil
+}
+
+func (this *ConfigValues) RemoveValue(withName string) error {
+
+	_, isSet := this.allValues[withName]
+	if isSet == false {
+		return goutility.NewError("Value with name %s is not set", withName)
+	}
+
+	this.allValues[withName] = nil
+
+	return nil
+}
+
 // TODO: more closely couple required and values so we can't have required values that don't exist
 func (this *ConfigValues) AddRequiredValue(requiredValueName string) {
 	if this.requiredValues == nil {

@@ -100,7 +100,7 @@ func (this *IntValue) UpdateValueFromConfigFile() {
 func (this *ConfigValues) makeAndAddIntValue(name string, shorthand *string, defaultValue *int, usageDescription string) *IntValue {
 
 	result := makeIntValue(name, shorthand, defaultValue, usageDescription)
-	this.allValues[name] = result
+	this.AddValue(result)
 	return result
 }
 
