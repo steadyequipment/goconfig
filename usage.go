@@ -108,7 +108,7 @@ func (this *ConfigValues) printOptions() {
 
 		value, _ := this.allValues[valueName]
 
-		fmt.Printf(leadSpacing)
+		fmt.Printf("%s", leadSpacing)
 
 		shorthand := value.Shorthand()
 		if shorthand != nil {
