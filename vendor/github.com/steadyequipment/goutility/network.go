@@ -1,7 +1,6 @@
 package goutility
 
 import (
-	"errors"
 	"net"
 )
 
@@ -25,7 +24,7 @@ func GetFirstNonLoopbackIP() (string, error) {
 			return *ipString, nil
 		}
 	}
-	return "", errors.New("Unable to find external ip address")
+	return "", MakeUnableToFindExternalIPAddressError()
 }
 
 func retreiveNonLoopbackV4IPString(ip net.IP) *string {

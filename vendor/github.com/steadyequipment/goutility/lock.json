@@ -1,0 +1,56 @@
+{
+    "memo": "6dc45e47050ee9f16502992037feabc262575438545d0a32b3ab981e06011f82",
+    "projects": [
+        {
+            "name": "github.com/golang/protobuf",
+            "branch": "master",
+            "revision": "2bba0603135d7d7f5cb73b2125beeda19c09f4ef",
+            "packages": [
+                "proto"
+            ]
+        },
+        {
+            "name": "github.com/google/go-github",
+            "revision": "90861904aa86352a956f91ba0664df93a3547584",
+            "packages": [
+                "github"
+            ]
+        },
+        {
+            "name": "github.com/google/go-querystring",
+            "revision": "9235644dd9e52eeae6fa48efd539fdc351a0af53",
+            "packages": [
+                "query"
+            ]
+        },
+        {
+            "name": "golang.org/x/net",
+            "revision": "69d4b8aa71caaaa75c3dfc11211d1be495abec7c",
+            "packages": [
+                "context"
+            ]
+        },
+        {
+            "name": "golang.org/x/oauth2",
+            "revision": "4784bb855e56a530f1ce5d788959359ed6cb4a16",
+            "packages": [
+                ".",
+                "internal"
+            ]
+        },
+        {
+            "name": "google.golang.org/appengine",
+            "version": "v1.0.0",
+            "revision": "150dc57a1b433e64154302bdc40b6bb8aefa313a",
+            "packages": [
+                "internal",
+                "internal/base",
+                "internal/datastore",
+                "internal/log",
+                "internal/remote_api",
+                "internal/urlfetch",
+                "urlfetch"
+            ]
+        }
+    ]
+}

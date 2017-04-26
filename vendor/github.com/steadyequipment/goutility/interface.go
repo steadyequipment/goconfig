@@ -4,9 +4,6 @@ import (
 	"fmt"
 
 	"reflect"
-
-	"encoding/json"
-	"io/ioutil"
 )
 
 // SprintfObject print information about an object to a string, optionally include its contents
@@ -30,7 +27,7 @@ func SprintfObjectInstance(i interface{}) string {
 
 // SprintfObjectContents print contents of an object to a string
 func SprintfObjectContents(i interface{}) (result string, error error) {
-	marshalResult, marshalError := json.Marshal(i)
+	marshalResult, marshalError := MarshalToJSON(i)
 
 	error = marshalError
 	if marshalResult != nil && len(marshalResult) > 0 {
@@ -41,44 +38,31 @@ func SprintfObjectContents(i interface{}) (result string, error error) {
 }
 
 // ReadObjectFromJSONFile read an object from a JSON file
-func ReadObjectFromJSONFile(object interface{}, fileName string) (error error) {
+func ReadObjectFromJSONFile(object interface{}, fileName string) ErrorTypeInterface {
 
-	fileContents, readFileError := ioutil.ReadFile(fileName)
+	fileContents, readFileError := ReadFile(fileName)
 	if readFileError != nil {
-
-		error = readFileError
-	} else {
-
-		marshalError := json.Unmarshal(fileContents, object)
-		if marshalError != nil {
-			error = marshalError
-		}
+		return readFileError
 	}
 
-	return
+	return UnmarshalFromJSON(fileContents, object)
 }
 
 // WriteObjectToJSONFile write an object to a JSON file
-func WriteObjectToJSONFile(object interface{}, fileName string, pretty bool) (result error) {
+func WriteObjectToJSONFile(object interface{}, fileName string, pretty bool) ErrorTypeInterface {
 
 	var fileContents []byte
-	var marshalError error
+	var marshalError ErrorTypeInterface
 
 	if pretty == true {
-		fileContents, marshalError = json.MarshalIndent(object, "", "    ")
+		fileContents, marshalError = MarshalIndentToJSON(object, "", "    ")
 	} else {
-		fileContents, marshalError = json.Marshal(object)
+		fileContents, marshalError = MarshalToJSON(object)
 	}
 
 	if marshalError != nil {
-		result = marshalError
-	} else {
-
-		writeError := ioutil.WriteFile(fileName, fileContents, 0644)
-		if writeError != nil {
-			result = writeError
-		}
+		return marshalError
 	}
 
-	return
+	return WriteFile(fileName, fileContents, 0644)
 }

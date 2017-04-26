@@ -26,6 +26,7 @@ func EmitOnChan(c chan string) func(string) error {
 }
 
 // NewError make a new error using SPrintf
+// TODO: deprecate in favor of Error
 func NewError(format string, parameters ...interface{}) error {
 
 	errorMessage := fmt.Sprintf(format, parameters...)

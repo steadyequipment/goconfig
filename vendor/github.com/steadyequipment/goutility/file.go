@@ -4,6 +4,7 @@ import (
 	"io"
 	"os"
 
+	"io/ioutil"
 	"path/filepath"
 )
 
@@ -49,4 +50,22 @@ func FileExists(path string) (bool, error) {
 		return false, nil
 	}
 	return true, err
+}
+
+func ReadFile(filename string) ([]byte, ErrorTypeInterface) {
+	fileContents, error := ioutil.ReadFile(filename)
+	if error != nil {
+		return fileContents, MakeReadFileError(filename, error)
+	}
+
+	return fileContents, nil
+}
+
+func WriteFile(filename string, data []byte, perm os.FileMode) ErrorTypeInterface {
+	error := ioutil.WriteFile(filename, data, perm)
+	if error != nil {
+		return MakeWriteFileError(filename, error)
+	}
+
+	return nil
 }
